@@ -84,10 +84,6 @@
             gap: 10px;
             max-width: 85%
         }
-        .banbox {
-            border: 1px solid rgb(255, 0, 0);
-            color: rgba(255, 255, 255, 0.479);
-        }
         .box {
             border: 1px solid rgb(255, 255, 255);
             display: flex;
@@ -97,6 +93,10 @@
             background-size: auto 100%; 
             background-position: center; 
             background-repeat: no-repeat; 
+        }
+        .banbox {
+            border: 1px solid rgb(255, 0, 0);
+            color: rgba(255, 255, 255, 0.479);
         }
         .abox {
             background-color: black;
@@ -450,7 +450,7 @@
                     // WebSocket으로 abox 클릭 이벤트 전송
                     ws.send(JSON.stringify({
                         'action': 'abox_click',
-                        'boxId': this.id, // name-container 대신 id 사용
+                        'boxId': this.id,
                     }));
                 }
             });
@@ -461,14 +461,17 @@
                 if (clicked_box) {
                     const imgSrc = clicked_box.querySelector('img').src;
         
-                    // WebSocket으로 box 클릭 이벤트 전송
+                    // WebSocket으로 box 클릭 이벤트 전송 (흑백 처리와 사용 상태 정보 추가)
                     ws.send(JSON.stringify({
                         'action': 'box_click',
                         'boxId': this.id,
-                        'imageSrc': imgSrc
+                        'imageSrc': imgSrc,
+                        'clickedBoxId': clicked_box.id, // 클릭된 abox의 id도 전송
                     }));
         
                     box.style.backgroundImage = `url(${imgSrc})`;
+                    
+                    // 클릭된 abox의 이미지 흑백 처리 및 사용 상태 변경
                     const aboxImage = clicked_box.querySelector('img');
                     aboxImage.style.filter = 'grayscale(100%)';
                     clicked_box.setAttribute('data-used', '1');
@@ -533,20 +536,34 @@
             if (action === 'box_click') {
                 const boxId = data.boxId;
                 const imageSrc = data.imageSrc;
+                const clickedBoxId = data.clickedBoxId;  // 클릭된 abox의 id
+        
+                // box에 이미지 적용
                 const box = document.getElementById(boxId);
                 if (box) {
                     box.style.backgroundImage = `url(${imageSrc})`;
                 }
+        
+                // 클릭된 abox의 이미지 흑백 처리 및 사용 상태 변경
+                const abox = document.getElementById(clickedBoxId);
+                const aboxImg = abox.querySelector('img');
+                if (aboxImg) {
+                    aboxImg.style.filter = 'grayscale(100%)';
+                }
+                abox.setAttribute('data-used', '1');
+                abox.style.border = 'none';
             }
         
             if (action === 'box_right_click') {
                 const boxId = data.boxId;
+        
+                // box에서 이미지 제거
                 const box = document.getElementById(boxId);
                 if (box) {
                     box.style.backgroundImage = '';
                 }
         
-                // 해당 이미지를 사용했던 abox의 상태도 원복
+                // 해당 이미지를 사용했던 abox의 상태 원복
                 const imageSrc = data.imageSrc;
                 document.querySelectorAll('.abox').forEach(abox => {
                     const aboxImg = abox.querySelector('img');
@@ -566,7 +583,6 @@
             }
         };
         
-
     </script>
 </body>
 </html>

@@ -41,6 +41,7 @@ class BanPickConsumer(AsyncWebsocketConsumer):
         elif action == 'box_click':
             box_id = text_data_json['boxId']
             image_src = text_data_json['imageSrc']
+            clicked_box_id = text_data_json['clickedBoxId']
 
             # 방 그룹에 이벤트 전송
             await self.channel_layer.group_send(
@@ -48,7 +49,8 @@ class BanPickConsumer(AsyncWebsocketConsumer):
                 {
                     'type': 'box_click',
                     'boxId': box_id,
-                    'imageSrc': image_src
+                    'imageSrc': image_src,
+                    'clickedBoxId': clicked_box_id  # 클릭된 abox 정보도 전송
                 }
             )
 
@@ -91,12 +93,14 @@ class BanPickConsumer(AsyncWebsocketConsumer):
     async def box_click(self, event):
         box_id = event['boxId']
         image_src = event['imageSrc']
+        clicked_box_id = event['clickedBoxId']  # 클릭된 abox 정보
 
         # 클라이언트에게 이벤트 전송
         await self.send(text_data=json.dumps({
             'action': 'box_click',
             'boxId': box_id,
-            'imageSrc': image_src
+            'imageSrc': image_src,
+            'clickedBoxId': clicked_box_id  # 클릭된 abox 정보도 전송
         }))
 
     async def box_right_click(self, event):
