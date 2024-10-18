@@ -1,5 +1,3 @@
-# your_app/consumers.py
-
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 
@@ -68,6 +66,18 @@ class BanPickConsumer(AsyncWebsocketConsumer):
                 }
             )
 
+        elif action == 'remove_border':
+            box_id = text_data_json['boxId']
+
+            # 방 그룹에 테두리 제거 이벤트 전송
+            await self.channel_layer.group_send(
+                self.room_group_name,
+                {
+                    'type': 'remove_border',
+                    'boxId': box_id,
+                }
+            )
+
     # 이벤트 핸들러
     async def abox_click(self, event):
         box_id = event['boxId']
@@ -98,4 +108,13 @@ class BanPickConsumer(AsyncWebsocketConsumer):
             'action': 'box_right_click',
             'boxId': box_id,
             'imageSrc': image_src
+        }))
+
+    async def remove_border(self, event):
+        box_id = event['boxId']
+
+        # 클라이언트에게 이벤트 전송
+        await self.send(text_data=json.dumps({
+            'action': 'remove_border',
+            'boxId': box_id
         }))

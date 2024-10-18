@@ -84,7 +84,7 @@
             gap: 10px;
             max-width: 85%
         }
-        #banbox {
+        .banbox {
             border: 1px solid rgb(255, 0, 0);
             color: rgba(255, 255, 255, 0.479);
         }
@@ -174,28 +174,28 @@
     <div class="layout">
         <div class="header">
             <div class="left">
-                <div class="box" id="banbox">ban</div>
-                <div class="box" id="banbox">ban</div>
-                <div class="box" id="banbox">ban</div>
-                <div class="box" id="banbox">ban</div>
+                <div class="box banbox" id="box-1">ban</div>
+                <div class="box banbox" id="box-2">ban</div>
+                <div class="box banbox" id="box-3">ban</div>
+                <div class="box banbox" id="box-4">ban</div>
             </div>
             <div class="center"></div>
             <div class="right">
-                <div class="box" id="banbox">ban</div>
-                <div class="box" id="banbox">ban</div>
-                <div class="box" id="banbox">ban</div>
-                <div class="box" id="banbox">ban</div>
+                <div class="box banbox" id="box-5">ban</div>
+                <div class="box banbox" id="box-6">ban</div>
+                <div class="box banbox" id="box-7">ban</div>
+                <div class="box banbox" id="box-8">ban</div>
             </div>
         </div>
 
         <div class="content">
             <div class="b-section left">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
+                <div class="box" id="box-9"></div>
+                <div class="box" id="box-10"></div>
+                <div class="box" id="box-11"></div>
+                <div class="box" id="box-12"></div>
+                <div class="box" id="box-13"></div>
+                <div class="box" id="box-14"></div>
             </div>
 
             <div class="a-section">
@@ -204,7 +204,7 @@
                 </div>
 
                 <div class="box-container">
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-1" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/abrams.webp' %}" alt="abrams">
                         </div>
@@ -213,7 +213,7 @@
                             <span class="hidden-text">에이브럼스</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-2" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/bebop.webp' %}" alt="bebop">
                         </div>
@@ -222,7 +222,7 @@
                             <span class="hidden-text">비밥</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-3" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/dynamo.webp' %}" alt="dynamo">
                         </div>
@@ -231,7 +231,7 @@
                             <span class="hidden-text">다이나모</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-4" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/grey talon.webp' %}" alt="grey talon">
                         </div>
@@ -240,7 +240,7 @@
                             <span class="hidden-text">그레이 탈론</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-5" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/haze.webp' %}" alt="haze">
                         </div>
@@ -249,7 +249,7 @@
                             <span class="hidden-text">헤이즈</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-6" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/holiday.png' %}" alt="holiday">
                         </div>
@@ -258,7 +258,7 @@
                             <span class="hidden-text">할리데이</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-7" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/infernus.webp' %}" alt="infernus">
                         </div>
@@ -267,7 +267,7 @@
                             <span class="hidden-text">인페르누스</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-8" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/ivy.webp' %}" alt="ivy">
                         </div>
@@ -276,7 +276,7 @@
                             <span class="hidden-text">아이비</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-9" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/kelvin.webp' %}" alt="kelvin">
                         </div>
@@ -285,7 +285,7 @@
                             <span class="hidden-text">켈빈</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-10" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/lady geist.webp' %}" alt="lady geist">
                         </div>
@@ -294,7 +294,7 @@
                             <span class="hidden-text">레이디 가이스트</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-11" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/lash.webp' %}" alt="lash">
                         </div>
@@ -303,7 +303,7 @@
                             <span class="hidden-text">래쉬</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-12" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/mcginnis.webp' %}" alt="mcginnis">
                         </div>
@@ -312,7 +312,7 @@
                             <span class="hidden-text">맥기니스</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-13" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/mirage.webp' %}" alt="mirage">
                         </div>
@@ -321,7 +321,7 @@
                             <span class="hidden-text">미라지</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-14" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/mo & krill.webp' %}" alt="mo & krill">
                         </div>
@@ -330,7 +330,7 @@
                             <span class="hidden-text">모와 크릴</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-15" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/paradox.webp' %}" alt="paradox">
                         </div>
@@ -339,7 +339,7 @@
                             <span class="hidden-text">패러독스</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-16" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/pocket.webp' %}" alt="pocket">
                         </div>
@@ -348,7 +348,7 @@
                             <span class="hidden-text">포켓</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-17" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/seven.webp' %}" alt="seven">
                         </div>
@@ -357,7 +357,7 @@
                             <span class="hidden-text">세븐</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-18" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/shiv.webp' %}" alt="shiv">
                         </div>
@@ -366,7 +366,7 @@
                             <span class="hidden-text">시브</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-19" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/vindicta.webp' %}" alt="vindicta">
                         </div>
@@ -375,7 +375,7 @@
                             <span class="hidden-text">빈딕타</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-20" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/viscous.webp' %}" alt="viscous">
                         </div>
@@ -384,7 +384,7 @@
                             <span class="hidden-text">비스쿠스</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-21" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/warden.webp' %}" alt="warden">
                         </div>
@@ -393,7 +393,7 @@
                             <span class="hidden-text">워든</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-22" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/wraith.webp' %}" alt="wraith">
                         </div>
@@ -402,7 +402,7 @@
                             <span class="hidden-text">레이스</span>
                         </div>
                     </div>
-                    <div class="abox" data-used="0">
+                    <div class="abox" id="abox-23" data-used="0">
                         <div class="image-container">
                             <img src="{% static 'banpick/images/yamato.webp' %}" alt="yamato">
                         </div>
@@ -411,22 +411,21 @@
                             <span class="hidden-text">야마토</span>
                         </div>
                     </div>
-                    
                 </div>
             </div>
 
             <div class="b-section right">
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
+                <div class="box" id="box-15"></div>
+                <div class="box" id="box-16"></div>
+                <div class="box" id="box-17"></div>
+                <div class="box" id="box-18"></div>
+                <div class="box" id="box-19"></div>
+                <div class="box" id="box-20"></div>
             </div>
         </div>
     </div>
     <script>
-        const roomName = "{{ room_name }}";  // Django 템플릿 변수 사용
+        const roomName = "{{ room_name }}"; 
         const ws = new WebSocket(`ws://${window.location.host}/ws/room/${roomName}/`);
 
         let clicked_box = null;
@@ -437,31 +436,38 @@
                 if (used === '0') {
                     if (clicked_box) {
                         clicked_box.style.border = 'none';
+        
+                        // WebSocket을 통해 클릭된 abox 테두리 해제 이벤트 전송
+                        ws.send(JSON.stringify({
+                            'action': 'remove_border',
+                            'boxId': clicked_box.id,
+                        }));
                     }
+        
                     box.style.border = '1px solid green';
                     clicked_box = box;
-
+        
                     // WebSocket으로 abox 클릭 이벤트 전송
                     ws.send(JSON.stringify({
                         'action': 'abox_click',
-                        'boxId': this.querySelector('.name-container').textContent.trim(),
+                        'boxId': this.id, // name-container 대신 id 사용
                     }));
                 }
             });
         });
-
+        
         document.querySelectorAll('.box').forEach(box => {
             box.addEventListener('click', function () {
                 if (clicked_box) {
                     const imgSrc = clicked_box.querySelector('img').src;
-
+        
                     // WebSocket으로 box 클릭 이벤트 전송
                     ws.send(JSON.stringify({
                         'action': 'box_click',
                         'boxId': this.id,
                         'imageSrc': imgSrc
                     }));
-
+        
                     box.style.backgroundImage = `url(${imgSrc})`;
                     const aboxImage = clicked_box.querySelector('img');
                     aboxImage.style.filter = 'grayscale(100%)';
@@ -470,22 +476,22 @@
                     clicked_box = null;
                 }
             });
-
+        
             box.addEventListener('contextmenu', function (e) {
                 e.preventDefault();
                 const bgImage = this.style.backgroundImage;
                 if (bgImage) {
                     const imgSrc = bgImage.slice(5, -2);
-
+        
                     // WebSocket으로 box 우클릭 이벤트 전송
                     ws.send(JSON.stringify({
                         'action': 'box_right_click',
                         'boxId': this.id,
                         'imageSrc': imgSrc
                     }));
-
+        
                     this.style.backgroundImage = '';
-
+        
                     document.querySelectorAll('.abox').forEach(abox => {
                         const aboxImg = abox.querySelector('img');
                         if (aboxImg.src === imgSrc) {
@@ -496,12 +502,12 @@
                 }
             });
         });
-
+        
         // 검색 기능 (WebSocket과는 무관)
         document.querySelector('.search-bar input').addEventListener('input', function () {
             const searchQuery = this.value.toLowerCase();
             const aboxes = document.querySelectorAll('.abox');
-
+        
             aboxes.forEach(function (abox) {
                 const name = abox.querySelector('.name-container').textContent.toLowerCase();
                 if (!searchQuery || name.includes(searchQuery)) {
@@ -511,39 +517,35 @@
                 }
             });
         });
+        
         ws.onmessage = function(e) {
             const data = JSON.parse(e.data);
             const action = data.action;
-
+        
             if (action === 'abox_click') {
                 const boxId = data.boxId;
-                // abox 클릭에 따른 처리 (여기서는 예시로 클릭된 abox 강조)
-                const abox = [...document.querySelectorAll('.abox')].find(ab => ab.querySelector('.name-container').textContent.trim() === boxId);
+                const abox = document.getElementById(boxId);
                 if (abox) {
                     abox.style.border = '1px solid green';
                 }
             }
-
+        
             if (action === 'box_click') {
                 const boxId = data.boxId;
                 const imageSrc = data.imageSrc;
-
-                // box 클릭에 따른 이미지 업데이트
                 const box = document.getElementById(boxId);
                 if (box) {
                     box.style.backgroundImage = `url(${imageSrc})`;
                 }
             }
-
+        
             if (action === 'box_right_click') {
                 const boxId = data.boxId;
-
-                // box 우클릭에 따른 이미지 제거
                 const box = document.getElementById(boxId);
                 if (box) {
                     box.style.backgroundImage = '';
                 }
-
+        
                 // 해당 이미지를 사용했던 abox의 상태도 원복
                 const imageSrc = data.imageSrc;
                 document.querySelectorAll('.abox').forEach(abox => {
@@ -554,7 +556,16 @@
                     }
                 });
             }
+        
+            if (action === 'remove_border') {
+                const boxId = data.boxId;
+                const abox = document.getElementById(boxId);
+                if (abox) {
+                    abox.style.border = 'none';
+                }
+            }
         };
+        
 
     </script>
 </body>
