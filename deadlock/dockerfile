@@ -1,0 +1,19 @@
+FROM python:3.10.11
+WORKDIR /app
+# RUN apt-get update && apt-get install -y \
+#     python3-dev \
+#     libhdf5-dev \
+#     gcc \
+#     musl-dev \
+#     ffmpeg \
+#     && apt-get clean
+COPY requirements.txt /app/
+RUN pip install --upgrade pip setuptools \
+    && pip install --no-cache-dir -r requirements.txt \
+    && pip install gunicorn  # Add this line to install gunicorn
+
+COPY . .
+
+EXPOSE 8000
+
+CMD ["daphne", "deadlock.asgi:application"]

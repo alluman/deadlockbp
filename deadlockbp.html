@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Boxes Layout</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .layout {
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+            width: 80vw;
+            background-color: black;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            height: 15%;
+        }
+        .header .left {
+            width: 30%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            justify-content: space-between;
+            background-color: #001f3f50; 
+            padding: 10px;
+            border: 3px;
+            border-color: red;
+        }
+        .header .right {
+            width: 30%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            justify-content: space-between;
+            background-color: #8a04044f;
+            padding: 10px;
+        }
+        .header .center {
+            width: 20%;
+            background-color: black;
+        }
+        .content {
+            display: flex;
+            height: 75%;
+            justify-content: space-between;
+        }
+        .content .b-section {
+            width: 10%;
+            display: grid;
+            grid-template-rows: repeat(6, 1fr);
+            gap: 10px;
+            padding: 10px;
+        }
+        .content .b-section.left {
+            background-color: #001f3f50;
+        }
+        .content .b-section.right {
+            background-color: #8a04044f;
+        }
+        .content .a-section {
+            background-color: black;
+            width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            position: relative;
+        }
+        .box-container {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 85%
+        }
+        #banbox {
+            border: 1px solid rgb(255, 0, 0);
+            color: rgba(255, 255, 255, 0.479);
+        }
+        .box {
+            border: 1px solid rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            background-size: auto 100%; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+        }
+        .abox {
+            background-color: black;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            aspect-ratio: 3 / 4; 
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%
+        }
+
+        .abox .image-container {
+            flex: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .abox .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; 
+        }
+
+        .abox .name-container {
+            flex: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            color: white; 
+        }
+
+        .hidden-text {
+            visibility: hidden; 
+            font-size: 0;       
+        }
+
+        .search-bar {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .search-bar input {
+            padding: 5px;
+            width: 200px;
+            border-radius: 4px;
+            border: none;
+        }
+        @media (max-width: 1412px) {
+            .box-container {
+                grid-template-columns: repeat(6, 1fr); 
+                gap: 8px;
+            }
+        }
+        @media (max-width: 1200px) {
+            .box-container {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 8px; 
+            }
+        }
+
+        @media (max-width: 992px) {
+            .box-container {
+                grid-template-columns: repeat(4, 1fr); 
+                gap: 6px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="header">
+            <div class="left">
+                <div class="box" id="banbox">ban</div>
+                <div class="box" id="banbox">ban</div>
+                <div class="box" id="banbox">ban</div>
+                <div class="box" id="banbox">ban</div>
+            </div>
+            <div class="center"></div>
+            <div class="right">
+                <div class="box" id="banbox">ban</div>
+                <div class="box" id="banbox">ban</div>
+                <div class="box" id="banbox">ban</div>
+                <div class="box" id="banbox">ban</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="b-section left">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+
+            <div class="a-section">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                </div>
+
+                <div class="box-container">
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="abrams.webp" alt="abrams">
+                        </div>
+                        <div class="name-container">
+                            abrams
+                            <span class="hidden-text">에이브럼스</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="bebop.webp" alt="bebop">
+                        </div>
+                        <div class="name-container">
+                            bebop
+                            <span class="hidden-text">비밥</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="dynamo.webp" alt="dynamo">
+                        </div>
+                        <div class="name-container">
+                            dynamo
+                            <span class="hidden-text">다이나모</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="grey talon.webp" alt="grey talon">
+                        </div>
+                        <div class="name-container">
+                            grey talon
+                            <span class="hidden-text">그레이 탈론</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="haze.webp" alt="haze">
+                        </div>
+                        <div class="name-container">
+                            haze
+                            <span class="hidden-text">헤이즈</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="holiday.png" alt="holiday">
+                        </div>
+                        <div class="name-container">
+                            holiday
+                            <span class="hidden-text">할리데이</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="infernus.webp" alt="infernus">
+                        </div>
+                        <div class="name-container">
+                            infernus
+                            <span class="hidden-text">인페르누스</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="ivy.webp" alt="ivy">
+                        </div>
+                        <div class="name-container">
+                            ivy
+                            <span class="hidden-text">아이비</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="kelvin.webp" alt="kelvin">
+                        </div>
+                        <div class="name-container">
+                            kelvin
+                            <span class="hidden-text">켈빈</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="lady geist.webp" alt="lady geist">
+                        </div>
+                        <div class="name-container">
+                            lady geist
+                            <span class="hidden-text">레이디 가이스트</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="lash.webp" alt="lash">
+                        </div>
+                        <div class="name-container">
+                            lash
+                            <span class="hidden-text">래쉬</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="mcginnis.webp" alt="mcginnis">
+                        </div>
+                        <div class="name-container">
+                            mcginnis
+                            <span class="hidden-text">맥기니스</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="mirage.webp" alt="mirage">
+                        </div>
+                        <div class="name-container">
+                            mirage
+                            <span class="hidden-text">미라지</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="mo & krill.webp" alt="mo & krill">
+                        </div>
+                        <div class="name-container">
+                            mo & krill
+                            <span class="hidden-text">모와 크릴</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="paradox.webp" alt="paradox">
+                        </div>
+                        <div class="name-container">
+                            paradox
+                            <span class="hidden-text">패러독스</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="pocket.webp" alt="pocket">
+                        </div>
+                        <div class="name-container">
+                            pocket
+                            <span class="hidden-text">포켓</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="seven.webp" alt="seven">
+                        </div>
+                        <div class="name-container">
+                            seven
+                            <span class="hidden-text">세븐</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="shiv.webp" alt="shiv">
+                        </div>
+                        <div class="name-container">
+                            shiv
+                            <span class="hidden-text">시브</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="vindicta.webp" alt="vindicta">
+                        </div>
+                        <div class="name-container">
+                            vindicta
+                            <span class="hidden-text">빈딕타</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="viscous.webp" alt="viscous">
+                        </div>
+                        <div class="name-container">
+                            viscous
+                            <span class="hidden-text">비스쿠스</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="warden.webp" alt="warden">
+                        </div>
+                        <div class="name-container">
+                            warden
+                            <span class="hidden-text">워든</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="wraith.webp" alt="wraith">
+                        </div>
+                        <div class="name-container">
+                            wraith
+                            <span class="hidden-text">레이스</span>
+                        </div>
+                    </div>
+                    <div class="abox" data-used="0">
+                        <div class="image-container">
+                            <img src="yamato.webp" alt="yamato">
+                        </div>
+                        <div class="name-container">
+                            yamato
+                            <span class="hidden-text">야마토</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="b-section right">
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let clicked_box = null; 
+
+        document.querySelectorAll('.abox').forEach(box => {
+            box.addEventListener('click', function () {
+                const used = box.getAttribute('data-used');
+                if (used === '0') {
+                    if (clicked_box) {
+                        clicked_box.style.border = 'none';
+                    }
+                    box.style.border = '1px solid green';
+                    clicked_box = box;
+                }
+            });
+        });
+    
+        document.body.addEventListener('click', function (e) {
+            if (!e.target.closest('.abox') && clicked_box) {
+                clicked_box.style.border = 'none';
+                clicked_box = null;
+            }
+        });
+    
+        document.querySelectorAll('.box').forEach(box => {
+            box.addEventListener('click', function () {
+                if (clicked_box) {
+                    const imgSrc = clicked_box.querySelector('img').src;
+                    box.style.backgroundImage = `url(${imgSrc})`; 
+    
+                    const aboxImage = clicked_box.querySelector('img');
+                    aboxImage.style.filter = 'grayscale(100%)'; 
+                    clicked_box.setAttribute('data-used', '1'); 
+    
+                    clicked_box.style.border = 'none'; 
+                    clicked_box = null; 
+                }
+            });
+    
+            box.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+                const bgImage = box.style.backgroundImage;
+                if (bgImage) {
+                    const imgSrc = bgImage.slice(5, -2);
+    
+                    box.style.backgroundImage = '';
+    
+                    document.querySelectorAll('.abox').forEach(abox => {
+                        const aboxImg = abox.querySelector('img');
+                        if (aboxImg.src === imgSrc) {
+                            aboxImg.style.filter = 'none';
+                            abox.setAttribute('data-used', '0'); 
+                        }
+                    });
+                }
+            });
+        });
+        document.querySelector('.search-bar input').addEventListener('input', function () {
+        const searchQuery = this.value.toLowerCase(); 
+        const aboxes = document.querySelectorAll('.abox');
+
+        aboxes.forEach(function (abox) {
+            const name = abox.querySelector('.name-container').textContent.toLowerCase(); 
+            if (!searchQuery || name.includes(searchQuery)) {
+                abox.style.display = 'flex';
+            } else {
+                abox.style.display = 'none'; 
+            }
+        });
+    });
+    const roomName = "my_room"; // 각 방의 이름에 따라 변경
+
+    const ws = new WebSocket(`ws://${window.location.host}/ws/room/${roomName}/`);
+
+    ws.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        const action = data.action;
+        const payload = data.data;
+
+        if (action === 'update_layout') {
+            const boxId = payload.boxId;
+            const imageUrl = payload.imageUrl;
+            
+            // 해당 박스의 이미지를 업데이트
+            const box = document.getElementById(boxId);
+            if (box) {
+                box.style.backgroundImage = `url(${imageUrl})`;
+            }
+        }
+    };
+
+    function updateBox(boxId, imageUrl) {
+        ws.send(JSON.stringify({
+            'action': 'update_layout',
+            'data': {
+                'boxId': boxId,
+                'imageUrl': imageUrl
+            }
+        }));
+    }
+
+    // 박스 클릭 시 WebSocket으로 업데이트 전송
+    document.querySelectorAll('.box').forEach(box => {
+        box.addEventListener('click', function () {
+            if (clicked_box) {
+                const imgSrc = clicked_box.querySelector('img').src;
+                updateBox(this.id, imgSrc);
+            }
+        });
+    });
+    </script>
+</body>
+</html>
