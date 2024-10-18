@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-i1)g882-kvh64+aei2o_jo#uoucbib3+dus$p)*yhsl9b5=p_5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.banpick.site']
+ALLOWED_HOSTS = ['54.180.233.73', 'banpick.site', 'www.banpick.site']
 
 
 # Application definition
